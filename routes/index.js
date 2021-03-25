@@ -7,9 +7,20 @@ const userInfoRouter = require('./userInfo')
 
 
 router.get("/" , (req,res)=>{
-    res.json({
-        message : "welcome to my app"
-    })
+    res.send(
+       `
+       <div style="margin-top:5%;">
+        <h1 style="font-family: Arial; margin-left:40%;">Welcome to My Database</h1><br>
+        <p style="margin-left:42%;">Simply browse data by adding to URL : </p>
+            <ul style="margin-left:43%;">
+                <li><p>User : /users</p></li>
+                <li><p>User ID : /users/(id)</p></li>
+                <li><p>User Info : /users/info</p></li>
+                <li><p>User Info ID : /users/info/(id)</p></li>
+            </ul>
+        </div>
+       `
+    )
 })
 
 // router.use("/data" , dataRouter);
