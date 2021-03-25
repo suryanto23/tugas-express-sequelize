@@ -4,6 +4,7 @@ const UserInfo = require('../models/UserInfo')
 module.exports = {
     getAllUser: async (req,res) => {
 
+    try {
      const users = await User.findAll( {
          include: {
              model : UserInfo,
@@ -15,10 +16,19 @@ module.exports = {
             message: "sucsess get all data",
             data: users
         })
+        
+    } catch (e) {
+        console.log(e)
+        
+    }
+
+    
     },
 
     getUserByID : async (req,res) => {
 
+        try {
+        
         const user = await User.findOne({
             where : { id : req.params.id },
             include : {
@@ -31,11 +41,20 @@ module.exports = {
             message: "GET ID sucsess",
             data: user
         })
+        
+        } catch (e) {
+            console.log(e)
+            
+        }
+
+        
 
     },
 
     addUser : async (req,res) => {
 
+        try {
+        
         const newVal = await User.create(req.body)
         console.log("we got something new " ,newVal)
 
@@ -43,6 +62,13 @@ module.exports = {
             message: "POST sucsess",
             data: newVal
         })
+        
+        } catch (e) {
+            console.log(e)
+            
+        }
+
+      
 
     },
 
