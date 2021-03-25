@@ -13,7 +13,7 @@ router.get("/" , (req,res)=>{
 })
 
 // router.use("/data" , dataRouter);
+router.use("/users/info" , userInfoRouter );
 router.use("/users" , userRouter );
-router.use("/info" , userInfoRouter );
 
 module.exports = router
